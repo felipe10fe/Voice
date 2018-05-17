@@ -83,55 +83,6 @@
                     }
                 }
             };
-		var roomid = 'roleplay';
-		if (localStorage.getItem(connection.socketMessageEvent)) {
-		    roomid = localStorage.getItem(connection.socketMessageEvent);
-		} else {
-		    roomid = connection.token();
-		}
-		document.getElementById('room-id').value = roomid;
-		document.getElementById('room-id').onkeyup = function() {
-		    localStorage.setItem(connection.socketMessageEvent, this.value);
-		};
-		var hashString = location.hash.replace('#', '');
-		if (hashString.length && hashString.indexOf('comment-') == 0) {
-		    hashString = '';
-		}
-		var roomid = params.roomid;
-		if (!roomid && hashString.length) {
-		    roomid = hashString;
-		}
-		if (roomid && roomid.length) {
-		    document.getElementById('room-id').value = roomid;
-		    localStorage.setItem(connection.socketMessageEvent, roomid);
-		    // auto-join-room
-		    (function reCheckRoomPresence() {
-			connection.checkPresence(roomid, function(isRoomExist) {
-			    if (isRoomExist) {
-				connection.join(roomid);
-				return;
-			    }
-			    setTimeout(reCheckRoomPresence, 5000);
-			});
-		    })();
-		}
-		connection.autoReDialOnFailure = false;
-
-		document.getElementById('open-room').onclick = function() {
-		    connection.open('roomId');
-		};
-
-		document.getElementById('join-room').onclick = function() {
-		    connection.connectionDescription = connection.join('roomId');
-		};
-
-		document.getElementById('disconnect-room').onclick = function() {
-		    if(!connection.peers[connection.connectionDescription.remoteUserId]) return;
-		    connection.peers[connection.connectionDescription.remoteUserId].peer.close();    
-		};
-		document.getElementById('rejoin-room').onclick = function() {
-		    connection.rejoin(connection.connectionDescription);
-		};
 		</script>
     </body>
 </html>
