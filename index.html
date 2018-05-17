@@ -85,7 +85,7 @@
                 if ( alreadyjoined )
                 	connection.leave();
                 connection = true;
-				connection.openOrJoin ( 'room' );
+				connection.openOrJoin ( room );
             }
 
             function addTalking( name ) {
@@ -126,7 +126,7 @@
                     }
                 }
             };
-            var predefinedRoomId = 'YOUR_Name';
+            var predefinedRoomId = 'Felipe';
 
             document.getElementById('btn-open-room').onclick = function() {
                 this.disabled = true;
