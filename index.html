@@ -17,6 +17,7 @@
                 color: #fff;
                 text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
             }
+
             .talking_name {
                 position: relative;
             }
@@ -25,44 +26,58 @@
     <body>
         <div id="audios_container"></div>
         <div id="talking_info"></div>
+        <button id="btn-open-room">Open Room</button>
+        <button id="btn-join-room">Join Room</button><hr>
         <script>
             let talkinginfo = document.getElementById( "talking_info" );
         	let connection = new RTCMultiConnection();
             let mystream = null;
             let pressingpushtotalk = false;
             let alreadyjoined = false;
+
 			connection.socketURL = "https://brazilrp.herokuapp.com:443/";
+
 			connection.socketMessageEvent = 'voice';
 			connection.leaveOnPageUnload = false;
+
 			connection.session = {
 			    audio: true,
 			    video: false
 			};
+
 			connection.mediaConstraints = {
 			    audio: true,
 			    video: false
 			};
+
 			connection.sdpConstraints.mandatory = {
 			    OfferToReceiveAudio: true,
 			    OfferToReceiveVideo: false
             };
+
             connection.extra = {
                 username: ""
             }
+
 			connection.audiosContainer = document.getElementById( "audios_container" );
+
 			connection.onstream = function ( event ) {
                 event.mediaElement.id = event.extra.username;
+
 			    if ( event.type == "local" ) {
 			    	mystream = event.stream;
 			    	event.stream.mute ( "audio" );
 			    }
 			};
+
             connection.onmute = function ( event ) {
                 removeTalking( event.mediaElement.id );
             }
+
             connection.onunmute = function ( event ) {
                 addTalking( event.mediaElement.id );
             }
+
             function joinRoom( room, username ) {
                 clearTalking();
                 if ( connection.extra.username == "" )
@@ -72,6 +87,7 @@
                 connection = true;
 				connection.openOrJoin ( room );
             }
+
             function addTalking( name ) {
                 let div = document.createElement( "div" );
                 div.innerHTML = name;
@@ -79,16 +95,20 @@
                 div.id = name;
                 talkinginfo.appendChild( div );
             }
+
             function removeTalking( name ) {
                 let div = document.getElementById( name );
                 //div.outerHTML = "";
                 delete div;
             }
+
             function clearTalking() {
                 while ( talkinginfo.firstChild ) {
                     talkinginfo.removeChild( talkinginfo.firstChild );
                 }
             }
+
+
             document.onkeydown = function ( event ) {
                 if ( !pressingpushtotalk ) {
                     if ( mystream != null && event.keyCode == 0x4E ) { // N
@@ -97,6 +117,7 @@
                     }
                 }
 			};
+
             document.onkeyup = function ( event ) {
                 if ( pressingpushtotalk ) {
                     if ( mystream != null && event.keyCode == 0x4E ) {  // N
@@ -106,15 +127,17 @@
                 }
             };
             var predefinedRoomId = 'Felipe';
+
             document.getElementById('btn-open-room').onclick = function() {
                 this.disabled = true;
                 connection.openOrJoin( predefinedRoomId );
             };
+
             document.getElementById('btn-join-room').onclick = function() {
                 this.disabled = true;
                 connection.openOrJoin( predefinedRoomId );
             };
-		var roomid = 'roleplay';
+		var roomid = '';
 		if (localStorage.getItem(connection.socketMessageEvent)) {
 		    roomid = localStorage.getItem(connection.socketMessageEvent);
 		} else {
@@ -147,6 +170,7 @@
 		    })();
 		    disableInputButtons();
 		}
+
 		</script>
     </body>
 </html>
