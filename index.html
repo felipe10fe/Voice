@@ -26,6 +26,8 @@
     <body>
         <div id="audios_container"></div>
         <div id="talking_info"></div>
+        <button id="btn-open-room">Open Room</button>
+        <button id="btn-join-room">Join Room</button><hr>
         <script>
             let talkinginfo = document.getElementById( "talking_info" );
         	let connection = new RTCMultiConnection();
@@ -61,7 +63,7 @@
 			connection.audiosContainer = document.getElementById( "audios_container" );
 
 			connection.onstream = function ( event ) {
-                //event.mediaElement.id = event.extra.username;
+                event.mediaElement.id = event.extra.username;
 
 			    if ( event.type == "local" ) {
 			    	mystream = event.stream;
@@ -69,7 +71,16 @@
 			    }
 			};
 
+            connection.onmute = function ( event ) {
+                removeTalking( event.mediaElement.id );
+            }
+
+            connection.onunmute = function ( event ) {
+                addTalking( event.mediaElement.id );
+            }
+
             function joinRoom( room, username ) {
+                clearTalking();
                 if ( connection.extra.username == "" )
                     connection.extra.username = username;
 					connection.extra.room = room;
@@ -77,6 +88,26 @@
                 	connection.leave();
                 connection = true;
 				connection.openOrJoin ( room );
+            }
+
+            function addTalking( name ) {
+                let div = document.createElement( "div" );
+                div.innerHTML = name;
+                div.className = "talking_name";
+                div.id = name;
+                talkinginfo.appendChild( div );
+            }
+
+            function removeTalking( name ) {
+                let div = document.getElementById( name );
+                div.outerHTML = "";
+                delete div;
+            }
+
+            function clearTalking() {
+                while ( talkinginfo.firstChild ) {
+                    talkinginfo.removeChild( talkinginfo.firstChild );
+                }
             }
 
             document.onkeydown = function ( event ) {
@@ -96,8 +127,19 @@
                     }
                 }
             };
-		
-					var roomid = connection.extra.room;
+            var predefinedRoomId = connection.extra.room;
+
+            document.getElementById('btn-open-room').onclick = function() {
+                this.disabled = true;
+                connection.open( predefinedRoomId );
+            };
+
+            document.getElementById('btn-join-room').onclick = function() {
+                this.disabled = true;
+                connection.join( predefinedRoomId );
+            };
+			
+			var roomid = connection.extra.room;
 			if (localStorage.getItem(connection.socketMessageEvent)) {
 				roomid = localStorage.getItem(connection.socketMessageEvent);
 			} else {
@@ -128,7 +170,6 @@
 						setTimeout(reCheckRoomPresence, 5000);
 					});
 				})();
-				disableInputButtons();
 			}
 		</script>
     </body>
