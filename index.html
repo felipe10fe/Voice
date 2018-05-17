@@ -126,10 +126,6 @@
 		if (hashString.length && hashString.indexOf('comment-') == 0) {
 		    hashString = '';
 		}
-		var roomid = params.roomid;
-		if (!roomid && hashString.length) {
-		    roomid = hashString;
-		}
 		if (roomid && roomid.length) {
 		    document.getElementById('room-id').value = roomid;
 		    localStorage.setItem(connection.socketMessageEvent, roomid);
