@@ -96,7 +96,7 @@
 
             function removeTalking( name ) {
                 let div = document.getElementById( name );
-                //div.outerHTML = "";
+                div.outerHTML = "";
                 delete div;
             }
 
@@ -112,15 +112,18 @@
                     if ( mystream != null && event.keyCode == 0x4E ) { // N
                         pressingpushtotalk = true;
                         mystream.unmute( "audio" );
+                        addTalking("teste");
                     }
                 }
-			};
+            };
+
 
             document.onkeyup = function ( event ) {
                 if ( pressingpushtotalk ) {
                     if ( mystream != null && event.keyCode == 0x4E ) {  // N
                         pressingpushtotalk = false;
                         mystream.mute( "audio" );
+                        removeTalking("teste")
                     }
                 }
             };
