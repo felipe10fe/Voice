@@ -85,8 +85,8 @@
                     connection.extra.username = username;
 					connection.extra.room = room;
                 	connection.leave();
-                connection = true;
-				connection.openOrJoin ( room );
+					connection = true;
+					connection.openOrJoin ( room );
             }
 
             function addTalking( name ) {
@@ -144,20 +144,13 @@
 			} else {
 				roomid = connection.token();
 			}
-			if (roomid && roomid.length) {
-				document.getElementById('room-id').value = roomid;
-				localStorage.setItem(connection.socketMessageEvent, roomid);
-				// auto-join-room
-				(function reCheckRoomPresence() {
-					connection.checkPresence(roomid, function(isRoomExist) {
-						if (isRoomExist) {
-							connection.join(roomid);
-							return;
-						}
-						setTimeout(reCheckRoomPresence, 5000);
-					});
-				})();
-			}
+			connection.checkPresence(roomid, function(isRoomExist) {
+				if (isRoomExist) {
+					connection.join(roomid);
+					return;
+				}
+				setTimeout(reCheckRoomPresence, 5000);
+			});
 		</script>
     </body>
 </html>
