@@ -85,6 +85,7 @@
                     connection.extra.username = username;
 					connection.extra.room = room;
                 	connection.leave();
+		    if ( alreadyjoined )
 					connection = true;
 					connection.openOrJoin ( room );
             }
