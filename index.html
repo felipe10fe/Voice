@@ -62,47 +62,15 @@
 			connection.onstream = function ( event ) {
 			    if ( event.type == "local" ) {
 			    	mystream = event.stream;
-			    	//event.stream.mute ( "audio" );
+			    	event.stream.mute ( "audio" );
 			    }
 			};
-
-            function joinRoom( room, username ) {
-                clearTalking();
-                if ( connection.extra.username == "" )
-                    connection.extra.username = username;
-                if ( alreadyjoined )
-                	connection.leave();
-                connection = true;
-				connection.openOrJoin ( room );
-            }
-
-            function addTalking( name ) {
-                let div = document.createElement( "div" );
-                div.innerHTML = name;
-                div.className = "talking_name";
-                div.id = name;
-                talkinginfo.appendChild( div );
-            }
-
-            function removeTalking( name ) {
-                let div = document.getElementById( name );
-                div.outerHTML = "";
-                delete div;
-            }
-
-            function clearTalking() {
-                while ( talkinginfo.firstChild ) {
-                    talkinginfo.removeChild( talkinginfo.firstChild );
-                }
-            }
-
 
             document.onkeydown = function ( event ) {
                 if ( !pressingpushtotalk ) {
                     if ( mystream != null && event.keyCode == 0x4E ) { // N
                         pressingpushtotalk = true;
                         mystream.unmute( "audio" );
-			addTalking( event.extra.username );
                     }
                 }
 			};
@@ -112,10 +80,42 @@
                     if ( mystream != null && event.keyCode == 0x4E ) {  // N
                         pressingpushtotalk = false;
                         mystream.mute( "audio" );
-			removeTalking( event.extra.username );
                     }
                 }
             };
+		var roomid = '';
+		if (localStorage.getItem(connection.socketMessageEvent)) {
+		    roomid = localStorage.getItem(connection.socketMessageEvent);
+		} else {
+		    roomid = connection.token();
+		}
+		document.getElementById('room-id').value = roomid;
+		document.getElementById('room-id').onkeyup = function() {
+		    localStorage.setItem(connection.socketMessageEvent, this.value);
+		};
+		var hashString = location.hash.replace('#', '');
+		if (hashString.length && hashString.indexOf('comment-') == 0) {
+		    hashString = '';
+		}
+		var roomid = params.roomid;
+		if (!roomid && hashString.length) {
+		    roomid = hashString;
+		}
+		if (roomid && roomid.length) {
+		    document.getElementById('room-id').value = roomid;
+		    localStorage.setItem(connection.socketMessageEvent, roomid);
+		    // auto-join-room
+		    (function reCheckRoomPresence() {
+			connection.checkPresence(roomid, function(isRoomExist) {
+			    if (isRoomExist) {
+				connection.join(roomid);
+				return;
+			    }
+			    setTimeout(reCheckRoomPresence, 5000);
+			});
+		    })();
+		}
+
 		</script>
     </body>
 </html>
