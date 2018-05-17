@@ -68,14 +68,6 @@
 			    }
 			};
 
-            connection.onmute = function ( event ) {
-                removeTalking( event.mediaElement.id );
-            }
-
-            connection.onunmute = function ( event ) {
-                addTalking( event.mediaElement.id );
-            }
-
             function joinRoom( room, username ) {
                 clearTalking();
                 if ( connection.extra.username == "" )
@@ -96,7 +88,7 @@
 
             function removeTalking( name ) {
                 let div = document.getElementById( name );
-                //div.outerHTML = "";
+                div.outerHTML = "";
                 delete div;
             }
 
@@ -112,6 +104,7 @@
                     if ( mystream != null && event.keyCode == 0x4E ) { // N
                         pressingpushtotalk = true;
                         mystream.unmute( "audio" );
+						addTalking( event.mediaElement.id );
                     }
                 }
 			};
@@ -121,6 +114,7 @@
                     if ( mystream != null && event.keyCode == 0x4E ) {  // N
                         pressingpushtotalk = false;
                         mystream.mute( "audio" );
+						removeTalking( event.mediaElement.id );
                     }
                 }
             };
