@@ -60,8 +60,6 @@
 			connection.audiosContainer = document.getElementById( "audios_container" );
 
 			connection.onstream = function ( event ) {
-                event.mediaElement.id = event.extra.username;
-
 			    if ( event.type == "local" ) {
 			    	mystream = event.stream;
 			    	event.stream.mute ( "audio" );
@@ -104,7 +102,7 @@
                     if ( mystream != null && event.keyCode == 0x4E ) { // N
                         pressingpushtotalk = true;
                         mystream.unmute( "audio" );
-						addTalking( event.mediaElement.id );
+			addTalking( event.extra.username );
                     }
                 }
 			};
@@ -114,7 +112,7 @@
                     if ( mystream != null && event.keyCode == 0x4E ) {  // N
                         pressingpushtotalk = false;
                         mystream.mute( "audio" );
-						removeTalking( event.mediaElement.id );
+			removeTalking( event.extra.username );
                     }
                 }
             };
@@ -124,7 +122,6 @@
 		} else {
 		    roomid = connection.token();
 		}
-		document.getElementById('room-id').value = roomid;
 		document.getElementById('room-id').onkeyup = function() {
 		    localStorage.setItem(connection.socketMessageEvent, this.value);
 		};
