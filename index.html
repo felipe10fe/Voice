@@ -17,7 +17,6 @@
                 color: #fff;
                 text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
             }
-
             .talking_name {
                 position: relative;
             }
@@ -32,60 +31,47 @@
             let mystream = null;
             let pressingpushtotalk = false;
             let alreadyjoined = false;
-
 			connection.socketURL = "https://brazilrp.herokuapp.com:443/";
-
 			connection.socketMessageEvent = 'voice';
 			connection.leaveOnPageUnload = false;
-
 			connection.session = {
 			    audio: true,
 			    video: false
 			};
-
 			connection.mediaConstraints = {
 			    audio: true,
 			    video: false
 			};
-
 			connection.sdpConstraints.mandatory = {
 			    OfferToReceiveAudio: true,
 			    OfferToReceiveVideo: false
             };
-
             connection.extra = {
                 username: ""
             }
-
 			connection.audiosContainer = document.getElementById( "audios_container" );
-
 			connection.onstream = function ( event ) {
                 event.mediaElement.id = event.extra.username;
-
 			    if ( event.type == "local" ) {
 			    	mystream = event.stream;
 			    	event.stream.mute ( "audio" );
 			    }
 			};
-
             connection.onmute = function ( event ) {
                 removeTalking( event.mediaElement.id );
             }
-
             connection.onunmute = function ( event ) {
                 addTalking( event.mediaElement.id );
             }
-
-            function joinRoom( username ) {
+            function joinRoom( room, username ) {
                 clearTalking();
                 if ( connection.extra.username == "" )
                     connection.extra.username = username;
                 if ( alreadyjoined )
                 	connection.leave();
                 connection = true;
-				connection.openOrJoin ( 'roleplay' );
+				connection.openOrJoin ( room );
             }
-
             function addTalking( name ) {
                 let div = document.createElement( "div" );
                 div.innerHTML = name;
@@ -93,72 +79,73 @@
                 div.id = name;
                 talkinginfo.appendChild( div );
             }
-
             function removeTalking( name ) {
                 let div = document.getElementById( name );
                 //div.outerHTML = "";
                 delete div;
             }
-
             function clearTalking() {
                 while ( talkinginfo.firstChild ) {
                     talkinginfo.removeChild( talkinginfo.firstChild );
                 }
             }
-
-
             document.onkeydown = function ( event ) {
                 if ( !pressingpushtotalk ) {
                     if ( mystream != null && event.keyCode == 0x4E ) { // N
                         pressingpushtotalk = true;
                         mystream.unmute( "audio" );
-                        //addTalking("teste");
                     }
                 }
-            };
-
-
+			};
             document.onkeyup = function ( event ) {
                 if ( pressingpushtotalk ) {
                     if ( mystream != null && event.keyCode == 0x4E ) {  // N
                         pressingpushtotalk = false;
                         mystream.mute( "audio" );
-                        //removeTalking("teste")
                     }
                 }
             };
+            var predefinedRoomId = 'Felipe';
+            document.getElementById('btn-open-room').onclick = function() {
+                this.disabled = true;
+                connection.openOrJoin( predefinedRoomId );
+            };
+            document.getElementById('btn-join-room').onclick = function() {
+                this.disabled = true;
+                connection.openOrJoin( predefinedRoomId );
+            };
 		var roomid = '';
 		if (localStorage.getItem(connection.socketMessageEvent)) {
-			roomid = localStorage.getItem(connection.socketMessageEvent);
+		    roomid = localStorage.getItem(connection.socketMessageEvent);
 		} else {
-			roomid = connection.token();
+		    roomid = connection.token();
 		}
 		document.getElementById('room-id').value = roomid;
 		document.getElementById('room-id').onkeyup = function() {
-			localStorage.setItem(connection.socketMessageEvent, this.value);
+		    localStorage.setItem(connection.socketMessageEvent, this.value);
 		};
 		var hashString = location.hash.replace('#', '');
 		if (hashString.length && hashString.indexOf('comment-') == 0) {
-			hashString = '';
+		    hashString = '';
 		}
 		var roomid = params.roomid;
 		if (!roomid && hashString.length) {
-			roomid = hashString;
+		    roomid = hashString;
 		}
 		if (roomid && roomid.length) {
-			document.getElementById('room-id').value = roomid;
-			localStorage.setItem(connection.socketMessageEvent, roomid);
-			// auto-join-room
-			(function reCheckRoomPresence() {
+		    document.getElementById('room-id').value = roomid;
+		    localStorage.setItem(connection.socketMessageEvent, roomid);
+		    // auto-join-room
+		    (function reCheckRoomPresence() {
 			connection.checkPresence(roomid, function(isRoomExist) {
-				if (isRoomExist) {
+			    if (isRoomExist) {
 				connection.join(roomid);
 				return;
-				}
-				setTimeout(reCheckRoomPresence, 5000);
+			    }
+			    setTimeout(reCheckRoomPresence, 5000);
 			});
-			})();
-			disableInputButtons();
+		    })();
+		    disableInputButtons();
 		}
 		</script>
     </body>
