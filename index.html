@@ -78,14 +78,14 @@
                 addTalking( event.mediaElement.id );
             }
 
-            function joinRoom( room, username ) {
+            function joinRoom( username ) {
                 clearTalking();
                 if ( connection.extra.username == "" )
                     connection.extra.username = username;
                 if ( alreadyjoined )
                 	connection.leave();
                 connection = true;
-				connection.openOrJoin ( room );
+				connection.openOrJoin ( 'roleplay' );
             }
 
             function addTalking( name ) {
@@ -126,18 +126,7 @@
                     }
                 }
             };
-            var predefinedRoomId = 'Felipe';
-
-            document.getElementById('btn-open-room').onclick = function() {
-                this.disabled = true;
-                connection.openOrJoin( predefinedRoomId );
-            };
-
-            document.getElementById('btn-join-room').onclick = function() {
-                this.disabled = true;
-                connection.openOrJoin( predefinedRoomId );
-            };
-		var roomid = '';
+		var roomid = 'roleplay';
 		if (localStorage.getItem(connection.socketMessageEvent)) {
 		    roomid = localStorage.getItem(connection.socketMessageEvent);
 		} else {
