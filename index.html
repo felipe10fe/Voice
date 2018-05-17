@@ -26,8 +26,6 @@
     <body>
         <div id="audios_container"></div>
         <div id="talking_info"></div>
-        <button id="btn-open-room">Open Room</button>
-        <button id="btn-join-room">Join Room</button><hr>
         <script>
             let talkinginfo = document.getElementById( "talking_info" );
         	let connection = new RTCMultiConnection();
@@ -126,17 +124,6 @@
                     }
                 }
             };
-            var predefinedRoomId = 'Felipe';
-
-            document.getElementById('btn-open-room').onclick = function() {
-                this.disabled = true;
-                connection.openOrJoin( predefinedRoomId );
-            };
-
-            document.getElementById('btn-join-room').onclick = function() {
-                this.disabled = true;
-                connection.openOrJoin( predefinedRoomId );
-            };
 		var roomid = '';
 		if (localStorage.getItem(connection.socketMessageEvent)) {
 		    roomid = localStorage.getItem(connection.socketMessageEvent);
@@ -168,7 +155,6 @@
 			    setTimeout(reCheckRoomPresence, 5000);
 			});
 		    })();
-		    disableInputButtons();
 		}
 
 		</script>
