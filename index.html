@@ -76,7 +76,7 @@
                 addTalking( event.mediaElement.id );
             }
 
-            function joinRoom( room, username ) {
+            function joinRoom( username ) {
                 clearTalking();
                 if ( connection.extra.username == "" )
                     connection.extra.username = username;
