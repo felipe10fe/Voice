@@ -1,0 +1,345 @@
+Qual é o propósito dos adaptadores RAID?
+conectar vários dispositivos de armazenamento para redundância ou velocidade *
+
+Que tipo de interface um cliente deve escolher se conecta um único cabo de um computador com Microsoft Windows para transmitir áudio e vídeo para uma televisão de alta definição?
+HDMI *
+
+Que tipo de dispositivo de entrada pode identificar usuários com base em sua voz?
+dispositivo de identificação switchbiométrica *
+
+Que tipo de armazenamento externo deve ser usado por um técnico para fazer backup de mais de 2 TB de arquivos de dados de música e vídeo?
+Fonte de energia ininterrupta*
+
+Qual medida pode ajudar a controlar os efeitos de RFI nas redes sem fio?
+Certifique-se de que a rede sem fio esteja em uma freqüência diferente da fonte incorreta. *
+Qual é o propósito de uma Folha de Dados de Segurança?
+especificar procedimentos para lidar com materiais potencialmente perigosos *
+
+O que pode ser testado com um multímetro digital?
+qualidade de eletricidade em componentes de computadores *
+
+Quando um técnico deve evitar usar uma pulseira antiestática?
+ao substituir uma unidade de fonte de alimentação *
+
+Qual solução deve ser usada para limpar uma CPU e um dissipador de calor?
+álcool isopropílico
+
+Quais dois tipos de slots de expansão seriam usados ​​por uma NIC sem fio em um computador hoje? (Escolha dois.)
+PCIe *
+PCI *
+
+Quando um PC está sendo montado, qual componente está conectado à placa-mãe com um cabo SATA?
+a unidade óptica *
+
+Um técnico está solucionando problemas de um computador que está apresentando uma falha de hardware detectada pelo BIOS. Qual é a única maneira de indicar essa falha?
+O computador emite um padrão de bipes indicando o dispositivo com defeito. *
+
+Quais são os três recursos que podem ser configurados nas configurações do BIOS para proteger um computador? (Escolha três.)
+criptografia de unidade *
+TPM *
+senhas *
+
+Qual é o motivo mais importante para uma empresa garantir que a manutenção preventiva do computador seja feita?
+A manutenção preventiva ajuda a proteger o equipamento do computador contra problemas futuros. *
+
+Um técnico abre um PC para trabalhar nele e descobre que está muito empoeirado por dentro. O que o técnico deve fazer?
+Use uma lata de ar comprimido para remover o excesso de poeira. *
+
+Qual ferramenta interna está disponível em uma máquina Mac OS X para executar backups em disco?
+Máquina do tempo* / Time Machine*
+
+Um técnico de computação realizou várias ações para corrigir um problema. Algumas ações não resolveram o problema, mas eventualmente uma solução foi encontrada. O que deve ser documentado?
+tudo o que foi feito para tentar resolver o problema *
+
+Depois que um computador é ligado, o Windows 7 falha ao iniciar. Qual procedimento inicial um técnico usaria para lidar com essa falha?
+Inicialize a partir de uma mídia de instalação do Windows 7 e acesse o utilitário Restauração do sistema. *
+
+Quais são as duas vantagens do sistema de arquivos NTFS em comparação com o FAT32? (Escolha dois.)
+O NTFS suporta arquivos maiores. *
+O NTFS fornece mais recursos de segurança. *
+
+Que tipo de disco rígido contém memória flash para armazenamento em cache de dados usados ​​com freqüência, mas armazena a maioria dos dados em uma unidade de disco rígido magnética?
+Disco de Estado Sólido*
+
+O que% USERPROFILE% representa no caminho C: Usuários% USERPROFILE% AppDataLocalTemp?
+uma variável de ambiente definida pelo sistema operacional *
+
+Um técnico percebe que um aplicativo não está respondendo a comandos e que o computador parece responder lentamente quando os aplicativos são abertos. Qual é a melhor ferramenta administrativa para forçar a liberação de recursos do sistema do aplicativo que não responde?
+Gerenciador de tarefas*
+
+Um técnico instalou uma nova placa de som em um PC, mas não está funcionando corretamente. Onde o técnico deve procurar investigar problemas de driver?
+Gerenciador de Dispositivos*
+
+Qual tecnologia fornece uma solução para a virtualização de PCs?
+hipervisor *
+
+Quais são as duas consequências da configuração de uma ordem de inicialização incorreta no BIOS do sistema? (Escolha dois.)
+O computador exibe um erro “BOOTMGR está faltando” após o POST. *
+O computador exibe um erro de “Disco de inicialização inválido” após o POST. *
+
+Um administrador de rede concluiu a migração de uma rede peer-to-peer para uma nova configuração de rede cliente-servidor. Quais são as duas vantagens da nova configuração? (Escolha dois.)
+Os dados são mais seguros no caso de falhas de hardware. *
+Recursos de dados e acesso são controlados centralmente. *
+
+Qual camada do modelo OSI é responsável pelo endereçamento físico e pelos procedimentos usados ​​para acessar a mídia?
+link de dados*
+
+A configuração atual de IP de uma empresa de médio porte com várias sub-redes é feita manualmente e consome tempo. Devido ao aumento do crescimento da rede, um técnico precisa de uma maneira mais simples para a configuração de IP das estações de trabalho. Qual serviço ou protocolo simplificaria a tarefa de configuração IP da estação de trabalho?
+DHCP *
+
+Várias mensagens enviadas ao administrador da rede estão relatando que o acesso a um servidor seguro usando HTTPS está falhando. Depois de verificar as atualizações recentes no firewall da empresa, o administrador descobre que o firewall está bloqueando o HTTPS. Qual porta deve ser aberta para resolver o problema?
+443 *
+
+Quais dois comandos podem ser usados ​​para verificar se a resolução de nomes DNS está funcionando corretamente em um PC com Windows? (Escolha dois.)
+nslookup cisco.com *
+ping cisco.com *
+
+Qual modo de segurança sem fio oferece suporte à segurança de nível governamental e oferece autenticação pessoal e empresarial?
+WPA2 *
+
+Qual serviço de computação em nuvem seria melhor para uma organização que precisa criar aplicativos de forma colaborativa e distribuí-los pela Web?
+PaaS *
+
+Ocasionalmente, um administrador de rede solicita a um técnico que garanta que a poeira não se acumule nos dispositivos nos armários de equipamentos de rede. Qual é o propósito de fazer o técnico fazer esse trabalho?
+A poeira pode causar superaquecimento do equipamento de rede e causar problemas na rede. *
+
+Um técnico instalou um adaptador de rede em um computador e quer testar a conectividade de rede. O comando ping pode receber respostas de estações de trabalho na mesma sub-rede, mas não de estações de trabalho remotas. O quê poderia estar causando o problema?
+O gateway padrão está incorreto. *
+
+Quais são os três dispositivos de entrada comuns encontrados em laptops? (Escolha três.)
+touchpad
+Leitor de impressão digital*
+câmera web*
+
+Um usuário chama o suporte técnico para informar que um dispositivo móvel exibe um desempenho muito lento. O que poderia causar este problema?
+Um aplicativo não é compatível com o dispositivo.
+
+Um técnico de computação decidiu que um problema com um laptop pode ser resolvido com o reparo de um componente de hardware. O que deve ser feito primeiro antes de tentar reparar um componente de hardware em um laptop?
+Consulte o manual de serviço do laptop. *
+
+Que pergunta fechada seria apropriada para um técnico usar para diminuir os possíveis problemas em um laptop que não liga?
+O laptop pode operar usando o adaptador AC?
+
+Um técnico está solucionando problemas na aparência de linhas piscantes na tela de um laptop. Quais são as duas possíveis causas dessa distorção? (Escolha dois.)
+A GPU não está resfriando corretamente.
+A tela não está instalada corretamente. *
+
+O que é uma indicação de que a bateria em um dispositivo móvel pode se tornar fisicamente perigosa e deve ser imediatamente substituída?
+se houver sinais de inchaço *
+
+Consulte a exposição. O que é verdade na tela deste dispositivo móvel?
+Mensagens de texto, notícias, fotos e outros conteúdos podem ser exibidos nos diferentes blocos. *
+
+Quais são os dois riscos potenciais que podem resultar do enraizamento ou do jailbreak de um dispositivo móvel? (Escolha dois.)
+permitindo acesso ao aplicativo para o diretório raiz *
+Não criar ou manter adequadamente recursos de sandbox *
+
+Quais são as duas tarefas que devem ser realizadas regularmente para preservar a segurança e a integridade dos dados e aplicativos em dispositivos móveis. (Escolha dois.)
+Faça backup dos dados do usuário regularmente *
+Assegure-se de que o software e os aplicativos do sistema operacional contenham as atualizações mais recentes. *
+
+Uma loja de pneus precisa usar papel de cópia carbono para imprimir as faturas dos clientes, para que tanto a loja quanto o cliente tenham uma cópia. Qual é a melhor solução de impressão?
+impressora de impacto *
+
+Um usuário em uma rede doméstica deseja compartilhar uma impressora de um computador com Windows 7. O que o usuário deve fazer para que outros computadores com Windows 7 da casa obtenham o driver adequado?
+Nada. O Windows fornece automaticamente o driver. *
+
+Quais são os três componentes normalmente encontrados nos kits de manutenção de impressoras a laser? (Escolha três.)
+montagem do fusor *
+rolos de coleta *
+rolos de transferência *
+
+O que caracteriza um ataque DDoS?
+Muitos hosts participam de um ataque coordenado. *
+
+Qual diretriz deve ser seguida ao estabelecer uma política de segurança de senha?
+Um período de expiração deve ser estabelecido para que as senhas mudem com freqüência. *
+
+Quais são os três recursos fornecidos pelo módulo TPM? (Escolha três.)
+segurança para informações de autenticação do usuário *
+proteção de licença de aplicativo *
+armazenamento de certificados digitais *
+
+Qual é a próxima etapa de solução de problemas depois que uma teoria de causa provável foi estabelecida?
+Teste a teoria para determinar a causa.
+
+Quando um técnico entende uma reclamação do cliente, é comum fazer perguntas fechadas. Qual pergunta é de perto?
+Esta é a primeira vez que o erro ocorreu?
+
+O que é uma característica da licença de código aberto de um software aplicativo?
+Ele permite que os usuários modifiquem e compartilhem o código-fonte. *
+
+Chad, um técnico de call center de nível um, recebe um telefonema do cliente. O cliente tem um problema que o Chade não tem conhecimento para responder. O cliente está irritado porque o Chade não pode fornecer assistência imediata. Quais são as duas coisas que o Chad deve fazer a seguir? (Escolha dois.)
+Documente o motivo pelo qual o cliente ligou e crie um ticket de suporte. *
+Encaminhe o cliente para um técnico de nível 2. *
+
+Usuários em um escritório reclamam que a impressora de rede está imprimindo linhas verticais em todas as páginas. Qual é a causa provável deste problema?
+A impressora tem um endereço IP incorreto. *
+
+Um técnico está solucionando problemas em um computador com Windows 7 que exibe uma mensagem de erro “Disco de inicialização inválido”. Qual seria a ação mais provável que o técnico deveria realizar para corrigir o problema?
+Use as Opções de Recuperação do Sistema para selecionar a partição ativa correta. *
+
+Quando um usuário tenta executar um programa, uma mensagem DLL ausente ou corrompida é exibida. Quais são as duas soluções possíveis para esse problema? (Escolha dois.)
+Execute o sfc / scannow no modo de segurança. *
+Reinstale o programa associado ao arquivo DLL corrompido. *
+
+O que pode ajudar a controlar o efeito da RFI em uma LAN sem fio?
+Certifique-se de que a rede sem fio esteja em uma freqüência diferente da fonte incorreta. *
+
+Um técnico deseja permitir que os usuários façam backup e restaurem todos os arquivos em seus computadores, mas não desejam que os usuários possam fazer alterações no sistema. Como o técnico deve dar aos usuários essa funcionalidade?
+Torne os usuários membros de um grupo chamado Operadores de Backup. *
+
+Combine os dispositivos de controle de acesso das instalações às descrições corretas. (Nem todas as opções são usadas.)
+identification badges with photographs *
+RFID badges *
+card keys *
+biometric sensors *
+
+Por que os laptops usam técnicas de otimização da CPU?
+para reduzir o calor que a CPU pode gerar *
+
+Qual ferramenta está incluída no Mac OS X para fazer backup de discos para arquivos de imagem e recuperar imagens de disco?
+Utilitário de Disco*
+
+Um novo técnico se juntou à equipe de TI e está prestes a fazer manutenção em uma impressora pesada. Quais precauções devem ser tomadas para evitar qualquer dano ao transportar a impressora pesada para a área de serviço? (Escolha dois.)
+Evite levantar o equipamento usando a força nas costas. *
+Levante o equipamento usando a força nas pernas e nos joelhos. *
+
+Consulte a exposição. Como parte do processo de construção de um computador, qual é a ordem correta das três primeiras etapas da instalação de uma fonte de alimentação?
+Etapas 1, 4, 3 *
+
+Quais duas operações podem ajudar a impedir que um dispositivo móvel seja rastreado sem permissão? (Escolha dois.)
+Desligue o GPS quando não estiver em uso. *
+Desativar ou remover aplicativos que permitem conexões com o GPS. *
+
+O que é uma característica de um conector de energia do computador?
+Um conector de energia SATA é usado para conectar a uma unidade de disco rígido ou a uma unidade óptica. *
+
+Qual cartão de expansão pode ajudar na solução de problemas de um computador quando nenhum vídeo está disponível?
+Cartão postal * / POST card *
+
+Quais são as duas configurações do PC que podem ser configuradas usando o utilitário de configuração do BIOS? (Escolha dois.)
+suporte de virtualização *
+sequencia de inicialização*
+
+Qual fator deve ser levado mais em conta em laptops do que em desktops?
+controle ambiental*
+
+Quais são os três benefícios da manutenção preventiva de computadores? (Escolha três.)
+melhoria na proteção de dados *
+extensão da vida útil dos componentes *
+redução no número de falhas de equipamentos *
+
+Qual etapa do processo de solução de problemas é importante para ajudar a evitar a repetição de processos de reparo que foram executados anteriormente?
+documentação do problema e sua solução *
+
+Um usuário de computador reclama de um computador que congela após cerca de cinco minutos de uso. O técnico verifica o BIOS do computador para ver se pode haver um problema de configuração que está fazendo com que o computador se comporte consistentemente dessa maneira. Enquanto o técnico está revisando as informações, o computador novamente congela. Qual é a causa provável do problema do computador?
+O ventilador da CPU não está funcionando.
+
+Por que um formato completo é mais benéfico do que um formato rápido ao se preparar para uma instalação limpa do sistema operacional?
+Um formato completo excluirá os arquivos do disco enquanto analisa a unidade de disco em busca de erros. *
+
+Qual é o sistema de arquivos padrão usado durante uma nova instalação do Windows 7?
+NTFS *
+
+Qual é o primeiro passo que um administrador deve dar ao dividir uma única partição em várias partições?
+Encolha a partição. *
+
+Um usuário percebe que alguns dos programas que estão instalados antes de atualizar o Windows para uma nova versão não funcionam mais corretamente após a atualização. O que o usuário pode fazer para corrigir esse problema?
+Execute os programas no modo de compatibilidade. *
+
+Após a instalação de um sistema operacional Windows, qual programa um técnico utilizaria para selecionar os programas que serão executados na inicialização?
+Msconfig *
+
+Que tipo de rede abrange um único edifício ou campus e fornece serviços e aplicativos para pessoas dentro de uma estrutura organizacional comum?
+LAN *
+
+Quais são as quatro camadas no modelo de referência TCP / IP?
+aplicação, transporte, internet, acesso à rede *
+
+Um usuário deseja mapear uma unidade de rede em um PC chamado “WORK2” e executar o Windows 7. O nome do recurso compartilhado que o usuário deseja mapear é chamado de “instalações” e está localizado em uma estação de trabalho chamada “WORK1”. Qual seria o caminho correto para mapear a unidade de rede?
+\ work1installs *
+
+Um cliente que viaja frequentemente deseja saber qual tecnologia é a mais adequada para estar conectada à rede corporativa a todo o momento e com baixo custo. Qual tecnologia de rede um administrador de rede recomendaria?
+celular *
+
+Qual é a diferença entre computação em nuvem e um data center?
+As soluções de computação em nuvem são recursos de rede e serviços fornecidos aos clientes por meio do uso de serviços de datacenters. *
+
+Um usuário reclama por não conseguir se conectar à rede sem fio. Quais duas ações devem fazer parte da solução de problemas da conexão sem fio? (Escolha dois.)
+Tente mover o laptop para lugares diferentes para ver se um sinal pode ser detectado. *
+Verifique no software do laptop se alguma rede sem fio foi detectada. *
+
+Um técnico instalou um adaptador de rede em um computador e quer testar a conectividade de rede. O comando ping só pode receber uma resposta das estações de trabalho locais. O quê poderia estar causando o problema?
+O gateway padrão não está definido.
+
+Um técnico de help desk do ISP recebe uma chamada de um cliente que informa que ninguém em sua empresa pode acessar qualquer site ou receber seu e-mail. Depois de testar a linha de comunicação e encontrar tudo bem, o técnico instrui o cliente a executar o nslookup a partir do prompt de comando. O que o técnico suspeita estar causando o problema do cliente?
+falha do DNS para resolver nomes para endereços IP *
+
+Um técnico é solicitado a configurar a hora em que o sistema deve ficar inativo antes que o disco rígido se torne mais lento em todos os laptops baseados em Windows da empresa. O técnico configurou as opções de energia no Windows, mas parece não ter efeito. Onde o técnico deve procurar ativar o gerenciamento de energia?
+BIOS *
+
+Um técnico precisa configurar um fone de ouvido Bluetooth para um usuário de laptop. Quais são os dois passos que o técnico deve tomar antes de instalar o fone de ouvido? (Escolha dois.)
+Ativar Bluetooth na configuração do BIOS. *
+Verifique se o comutador Bluetooth do laptop está ativado. *
+
+Que componente do laptop converte a energia CC em CA para que a tela possa iluminar?
+inversor * / inverter *
+
+Um usuário faz o download de um widget em seu telefone Android, mas fica perplexo ao ver que, quando o widget é tocado, um aplicativo é iniciado. O que é uma causa possível?
+O widget está associado ao aplicativo e esse é o comportamento normal. *
+
+Qual componente usa a maior quantidade de energia na maioria dos dispositivos móveis?
+Tela LCD *
+
+Qual é o propósito de usar o protocolo de e-mail MIME em dispositivos móveis?
+para permitir que fotos e documentos sejam incluídos em mensagens de e-mail *
+
+O que é uma indicação de que a bateria em um dispositivo móvel pode se tornar fisicamente perigosa e deve ser imediatamente substituída?
+se houver sinais de inchaço *
+
+Um técnico está explicando as diferenças entre impressoras a jato de tinta e impressoras a laser para um cliente. Quais duas comparações o técnico deve fazer? (Escolha dois.)
+As impressoras jato de tinta são menos caras como uma compra inicial do que as impressoras a laser. *
+A saída da impressora a laser é seca após a impressão, mas uma impressora a jato de tinta ainda pode ter tinta úmida no papel após a impressão. *
+
+Para limpar uma impressora a laser, o que deve ser usado para retirar o excesso de partículas de toner?
+um vácuo compatível com HEPA *
+
+Quais são as duas políticas de controle de senha que uma organização deve implementar para garantir senhas fortes? (Escolha dois.)
+As senhas devem ser definidas para expirar a cada 60 dias. *
+As senhas devem conter letras e números. *
+
+Um técnico de informática foi solicitado a proteger todos os computadores com Windows 7, criptografando todos os dados em cada computador. Qual recurso do Windows deve ser usado para fornecer esse nível de criptografia?
+BitLocker *
+
+firewall do Windows. Quais são as três opções que o usuário terá para lidar com esse evento? (Escolha três.)
+Continue bloqueando *
+Desbloquear *
+Me pergunte depois *
+
+Um técnico suspeita que um problema de segurança está causando problemas em um computador. Quais duas ações poderiam ser realizadas para testar teorias de causa provável ao solucionar problemas do PC? (Escolha dois.)
+Faça o login como um usuário diferente. *
+Desconecte o computador da rede. *
+
+Um técnico de central de atendimento atende a uma chamada de um cliente freqüente que é conhecido por ser impaciente e não tem experiência com computadores. O cliente tem um problema com um aplicativo que o call center suporta. O cliente informa ao técnico que o problema foi relatado anteriormente, mas o técnico original foi rude, não deu ouvidos e não corrigiu o problema. Se o técnico tiver certeza de que o problema pode ser resolvido aumentando a quantidade de memória no computador, o que o técnico deve fazer?
+Confirme os problemas e dê instruções detalhadas para resolver o problema. *
+
+Qual expectativa é definida no contrato de nível de serviço entre uma organização e um fornecedor de serviços?
+tempo de resposta do serviço garantido *
+
+Em que circunstâncias um técnico de nível um deve iniciar uma ordem de serviço escalonada?
+quando um problema requer conhecimento de outro técnico *
+
+Um aplicativo aparece congelado e não está respondendo a um mouse ou ao teclado. Qual ferramenta do sistema operacional Windows pode ser usada para parar o aplicativo?
+Gerenciador de tarefas*
+
+Quais são os dois problemas que podem causar erros de BSOD? (Escolha dois.)
+RAM falhando *
+erros de driver de dispositivo *
+
+Um usuário instalou um novo cliente FTP em um computador, mas não teve êxito ao se conectar a um servidor FTP. Quais são as duas principais informações que o usuário deve garantir que estejam configuradas corretamente no cliente FTP? (Escolha dois.)
+Endereço IP do servidor FTP *
+Número da porta do servidor FTP *
+
+Um técnico que está trabalhando no laptop de um funcionário descobre que vários arquivos criptografados em uma unidade de servidor de rede estão presentes na unidade do laptop em formato não criptografado. O que poderia causar este problema?
+O novo computador não possui uma partição NTFS. *
