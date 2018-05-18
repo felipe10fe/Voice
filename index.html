@@ -126,30 +126,9 @@
                     }
                 }
             };
-            var predefinedRoomId = connection.extra.room;
-
-            document.getElementById('btn-open-room').onclick = function() {
-                this.disabled = true;
-                connection.open( predefinedRoomId );
-            };
-
-            document.getElementById('btn-join-room').onclick = function() {
-                this.disabled = true;
-                connection.join( predefinedRoomId );
-            };
-			
-			var roomid = connection.extra.room;
-			if (localStorage.getItem(connection.socketMessageEvent)) {
-				roomid = localStorage.getItem(connection.socketMessageEvent);
-			} else {
-				roomid = connection.token();
-			}
-			connection.checkPresence(roomid, function(isRoomExist) {
-				if (isRoomExist) {
-					connection.join(roomid);
-					return;
-				}
-			});
+            var predefinedRoomId = 'roleplay';
+		connection.open( predefinedRoomId );
+		connection.join( predefinedRoomId );
 		</script>
     </body>
 </html>
