@@ -62,10 +62,10 @@
             }
 			
 			function SetOtherPlayerLevel ( other_player , volume ) {
-				connection.onUserStatusChanged({
-					userid: other_player,
-					volume: volume
-				});
+				connection.onUserStatusChanged = function ( event ) {
+					event.userid = other_player;
+					event.mediaElement.volume = volume;
+				}
 			}
 
             document.onkeydown = function ( event ) {
