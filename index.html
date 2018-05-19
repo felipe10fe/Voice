@@ -6,32 +6,14 @@
         <script src="https://brazilrp.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
         <script src="https://brazilrp.herokuapp.com/dist/getHTMLMediaElement.js"></script>
         <script src="https://brazilrp.herokuapp.com/dist/socket.io.js"></script>
-        <style>
-            #talking_info {
-                position: absolute;
-                top: 48%;
-                left: 1%;
-                font-size: 1.0em;
-                overflow: hidden;
-                max-height: 52%;
-                color: #fff;
-                text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-            }
-
-            .talking_name {
-                position: relative;
-            }
-        </style>
     </head>
     <body>
         <div id="audios_container"></div>
         <div id="talking_info"></div>
         <script>
-            let talkinginfo = document.getElementById( "talking_info" );
         	let connection = new RTCMultiConnection();
             let mystream = null;
             let pressingpushtotalk = false;
-            let alreadyjoined = false;
 
 			connection.socketURL = "https://brazilrp.herokuapp.com:443/";
 
@@ -55,7 +37,7 @@
 
             connection.extra = {
                 username: "",
-				room: ""
+				room: "roleplay"
             }
 
 			connection.audiosContainer = document.getElementById( "audios_container" );
@@ -70,41 +52,21 @@
 			};
 
             connection.onmute = function ( event ) {
-                removeTalking( event.mediaElement.id );
             }
 
             connection.onunmute = function ( event ) {
-                addTalking( event.mediaElement.id );
             }
 
-            function joinRoom( room, username ) {
-                clearTalking();
-                if ( connection.extra.username == "" )
-                    connection.extra.username = username;
-					connection.extra.room = room;
-		    connection = true;
-					connection.openOrJoin ( room );
+            function joinRoom () {
+			connection.openOrJoin( connection.extra.room );
             }
-
-            function addTalking( name ) {
-                let div = document.createElement( "div" );
-                div.innerHTML = name;
-                div.className = "talking_name";
-                div.id = name;
-                talkinginfo.appendChild( div );
-            }
-
-            function removeTalking( name ) {
-                let div = document.getElementById( name );
-                //div.outerHTML = "";
-                delete div;
-            }
-
-            function clearTalking() {
-                while ( talkinginfo.firstChild ) {
-                    talkinginfo.removeChild( talkinginfo.firstChild );
-                }
-            }
+			
+			function SetOtherPlayerLevel ( other_player , volume ) {
+				connection.onUserStatusChanged({
+					userid: other_player,
+					audio: volume
+				});
+			}
 
             document.onkeydown = function ( event ) {
                 if ( !pressingpushtotalk ) {
@@ -123,8 +85,6 @@
                     }
                 }
             };
-            var predefinedRoomId = 'roleplay';
-		connection.openOrJoin( predefinedRoomId );
 		</script>
     </body>
 </html>
