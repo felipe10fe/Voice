@@ -45,6 +45,10 @@
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
+				
+				if (event.userid === connection.sessionid) {
+					mp.trigger("reloadBrowser");
+				}
 			};
 
 			function setVolume(playerid, pVolume){
@@ -69,14 +73,6 @@
 					event.stream.mute ( "audio" );
 				}
 			};
-
-			connection.onmute = function ( event ) {
-
-			}
-
-			connection.onunmute = function ( event ) {
-
-			}
 
 			function joinRoom( userid, idOfUser, room ) {
 				if ( connection.extra.room == "" ){
@@ -109,11 +105,11 @@
 					}
 				}
 			};
-			connection.onleave = function(event) {
+			/*connection.onstreamended  = function(event) {
 				if (event.userid === connection.sessionid) {
 					mp.trigger("reloadBrowser");
 				}
-			};
+			};*/
 		</script>
     </body>
 </html>
