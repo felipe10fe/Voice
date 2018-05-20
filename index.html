@@ -80,6 +80,9 @@
 				}else{
 					connection.join( room );
 				}
+				if ( connection.extra.userid == "" ){
+					connection.extra.userid = userid;
+				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
