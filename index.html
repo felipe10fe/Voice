@@ -86,9 +86,9 @@
 				connection = true;
 			}
 
-			document.onkeydown = function ( event ) {
+			function pressDown() {
 				if ( !pressingpushtotalk ) {
-					if ( mystream != null && event.keyCode == 0x14 ) { // 0x4E
+					if ( mystream != null ) {
 						pressingpushtotalk = true;
 						mystream.unmute( "audio" );
 						mp.trigger("falandoT");
@@ -96,23 +96,15 @@
 				}
 			};
 
-			document.onkeyup = function ( event ) {
+			function pressUp() {
 				if ( pressingpushtotalk ) {
-					if ( mystream != null && event.keyCode == 0x14 ) {  
+					if ( mystream != null ) { 
 						pressingpushtotalk = false;
 						mystream.mute( "audio" );
 						mp.trigger("falandoF");
 					}
 				}
 			};
-			/*connection.onstreamended  = function(event) {
-				if (event.userid === connection.sessionid) {
-					mp.trigger("reloadBrowser");
-				}
-			};*/
-		connection.onleave = function(event) {
-    alert(event.userid + ' left.');
-};
 		</script>
     </body>
 </html>
