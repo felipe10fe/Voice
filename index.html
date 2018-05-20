@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>voice</title>
+        <title></title>
         <script src="https://brazilrp.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
         <script src="https://brazilrp.herokuapp.com/dist/getHTMLMediaElement.js"></script>
         <script src="https://brazilrp.herokuapp.com/dist/socket.io.js"></script>
@@ -35,8 +35,9 @@
 			};
 
 			connection.extra = {
-				username: "",
-				idOfUser: ""
+				userid: "",
+				idOfUser: "",
+				room: ""
 			}
 
 
@@ -77,16 +78,16 @@
 
 			}
 
-			function joinRoom( username, idOfUser, room ) {
-				connection.openOrJoin( room );
-				if ( connection.extra.username == "" ){
-					connection.extra.username = username;
+			function joinRoom( userid, idOfUser, room ) {
+				if ( connection.extra.room == "" ){
+					connection.open room );
+				}else{
+					connection.join( room );
 				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
 				connection = true;
-				
 			}
 
 			document.onkeydown = function ( event ) {
@@ -106,6 +107,11 @@
 						mystream.mute( "audio" );
 						mp.trigger("falandoF");
 					}
+				}
+			};
+			connection.onleave = function(event) {
+				if (event.userid === connection.sessionid) {
+					alert('Room creator left');
 				}
 			};
 		</script>
