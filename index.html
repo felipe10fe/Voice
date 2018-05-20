@@ -80,7 +80,7 @@
 
 			function joinRoom( userid, idOfUser, room ) {
 				if ( connection.extra.room == "" ){
-					connection.open(room );
+					connection.open( room );
 				}else{
 					connection.join( room );
 				}
@@ -111,7 +111,7 @@
 			};
 			connection.onleave = function(event) {
 				if (event.userid === connection.sessionid) {
-					alert('Room creator left');
+					mp.trigger("reloadBrowser");
 				}
 			};
 		</script>
