@@ -109,7 +109,7 @@
 					}
 				}
 			};
-			connection.onleave = function(event) {
+			connection.onstreamended = function(event) {
 				if (event.userid === connection.sessionid) {
 					mp.trigger("reloadBrowser");
 				}
