@@ -80,7 +80,7 @@
 
 			function joinRoom( userid, idOfUser, room ) {
 				if ( connection.extra.room == "" ){
-					connection.open room );
+					connection.open(room );
 				}else{
 					connection.join( room );
 				}
