@@ -35,7 +35,6 @@
 			};
 
 			connection.extra = {
-				userid: "",
 				idOfUser: "",
 				room: ""
 			}
@@ -74,13 +73,10 @@
 				}
 			};
 
-			function joinRoom( userid, idOfUser, room ) {
+			function joinRoom( idOfUser, room ) {
 				if ( connection.extra.room == "" ){
 					connection.openOrJoin( room );
 					mp.trigger("contVoip");
-				}
-				if ( connection.extra.userid == "" ){
-					connection.extra.userid = userid;
 				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
