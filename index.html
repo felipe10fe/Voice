@@ -35,7 +35,8 @@
 			};
 
 			connection.extra = {
-				idOfUser: ""
+				idOfUser: "",
+				room: ""
 			}
 
 
@@ -70,21 +71,13 @@
 					mystream = event.stream;
 					event.stream.mute ( "audio" );
 				}
-				
-				
 			};
 
-			connection.onmute = function ( event ) {
-
-			}
-
-			connection.onunmute = function ( event ) {
-
-			}
-
-			function joinRoom( idOfUser ) {
-					connection.openOrJoin( '' );
+			function joinRoom( idOfUser, room ) {
+				if ( connection.extra.room == "" ){
+					connection.openOrJoin( room );
 					mp.trigger("contVoip");
+				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
