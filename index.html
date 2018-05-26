@@ -50,16 +50,6 @@
 				}
 			};
 
-			function setVolume(playerid, pVolume){
-				var playerAudio = document.getElementById(playerid);
-				playerAudio.volume = pVolume;
-			}
-
-			function mutePlayer(playerid, action){
-				var playerAudio = document.getElementById(playerid);
-				playerAudio.muted = action;
-			}
-
 			var audiosContainer = document.getElementById('audios-container');
 
 			connection.onstream = function ( event ) {
