@@ -75,8 +75,10 @@
 
 			function joinRoom( idOfUser, room ) {
 					if ( connection.extra.room == "" ){
+					connection.extra.room = room;
+					connection.openOrJoin( event.extra.room );
 					mp.trigger("contVoip");
-					}
+				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
