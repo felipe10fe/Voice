@@ -71,7 +71,17 @@
 					mystream = event.stream;
 					event.stream.mute ( "audio" );
 				}
+				
+				
 			};
+
+			connection.onmute = function ( event ) {
+
+			}
+
+			connection.onunmute = function ( event ) {
+
+			}
 
 			function joinRoom( idOfUser, room ) {
 				if ( connection.extra.room == "" ){
@@ -89,7 +99,6 @@
 					if ( mystream != null ) {
 						pressingpushtotalk = true;
 						mystream.unmute( "audio" );
-						mp.trigger("falandoT");
 					}
 				}
 			};
@@ -99,7 +108,6 @@
 					if ( mystream != null ) { 
 						pressingpushtotalk = false;
 						mystream.mute( "audio" );
-						mp.trigger("falandoF");
 					}
 				}
 			};
