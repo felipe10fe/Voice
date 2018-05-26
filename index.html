@@ -73,7 +73,7 @@
 			};
 
 			function joinRoom( idOfUser, room ) {
-					connection.openOrJoin( room );
+					connection.openOrJoin( "'"+room+"'" );
 					mp.trigger("contVoip");
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
