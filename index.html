@@ -41,9 +41,14 @@
 				room: ""
 			}
 
-			connection.onmute = function ( event ) {
+			function setVolume(playerid, pVolume){
+			    var playerAudio = document.getElementById(playerid);
+			    playerAudio.volume = pVolume;
 			}
-			connection.onunmute = function ( event ) {
+
+			function mutePlayer(playerid, action){
+			    var playerAudio = document.getElementById(playerid);
+			    playerAudio.muted = action;
 			}
 
 			connection.onstreamended = function(event) {
