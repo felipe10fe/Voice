@@ -10,7 +10,7 @@
         <script src="https://brazilrp.herokuapp.com/dist/socket.io.js"></script>
     </head>
     <body>
-        <div id="audios-container" style="display: none;"></div>
+        <div id="audios-container"></div>
         <script>
         	let connection = new RTCMultiConnection();
 			let mystream = null;
@@ -76,7 +76,7 @@
 				
 				if ( event.type == "local" ) {
 					mystream = event.stream;
-					event.stream.mute ( "audio" );
+					event.stream.remove();
 				}
 			};
 
@@ -96,7 +96,7 @@
 				if ( !pressingpushtotalk ) {
 					if ( mystream != null ) {
 						pressingpushtotalk = true;
-						mystream.mute( "audio" );
+						mystream.unmute( "audio" );
 					}
 				}
 			};
