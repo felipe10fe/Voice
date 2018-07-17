@@ -76,7 +76,7 @@
 				
 				if ( event.type == "local" ) {
 					mystream = event.stream;
-					event.stream.remove();
+					event.stream.mute( "audio" );
 				}
 			};
 
