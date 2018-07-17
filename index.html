@@ -59,7 +59,7 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				alert('Room creator left');
+				alert('Room creator left'+ connection.sessionid);
 				mp.trigger("reloadBrowser");
 			    }
 			};
@@ -68,11 +68,6 @@
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
-				
-				if (event.userid === connection.sessionid) {
-					alert("Hello!");
-					mp.trigger("reloadBrowser");
-				}
 			};
 
 			var audiosContainer = document.getElementById('audios-container');
