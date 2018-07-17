@@ -57,6 +57,13 @@
 			    playerAudio.muted = action;
 			}
 
+			connection.onleave = function(event) {
+			    if (event.userid === connection.sessionid) {
+				alert('Room creator left');
+				mp.trigger("reloadBrowser");
+			    }
+			};
+
 			connection.onstreamended = function(event) {
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
