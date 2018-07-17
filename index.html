@@ -59,7 +59,6 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				alert('Room creator left'+ connection.sessionid);
 				mp.trigger("reloadBrowser");
 			    }
 			};
