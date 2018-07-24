@@ -122,7 +122,8 @@
 					if ( connection.extra.room == "" ){
 					connection.extra.room = room;
 					connection.openOrJoin( room );
-					mp.trigger("contVoip");
+						alert(connection.sessionid);
+					//mp.trigger("contVoip");
 				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
