@@ -81,7 +81,6 @@
 			});
 		
 			connection.onspeaking = function (e) {
-			  // e.streamid, e.userid, e.stream, etc.
 			  e.mediaElement.style.border = '10px solid red';
 			};
 
@@ -101,7 +100,7 @@
 				playerAudio.remove();
 			    if (event.userid === connection.sessionid) {
 				connection.join();
-				audiosContainer.append(event.mediaElement);
+				playerAudio.volume = 0.0;
 			    }
 			};
 
