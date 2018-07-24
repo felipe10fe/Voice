@@ -127,15 +127,14 @@
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
-				connection.checkPresence(room, function(true, room) {
+				//mp.trigger("contVoip");
+				connection.checkPresence(room, function(isRoomExist, room) {
 					if (isRoomExist === true) {
 						connection.join(room);
 						connection.changeUserId(idOfUser);
-						//mp.trigger("contVoip");
 					} else {
-						connection.open(room);
-						connection.changeUserId(room);
-						//mp.trigger("contVoip");
+						connection.open(connection.extra.room);
+						connection.changeUserId(connection.extra.room);
 					}
 				});
 				connection = true;
