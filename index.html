@@ -95,17 +95,6 @@
 			    playerAudio.muted = action;
 			}
 
-			connection.onmute = function ( event ) {
-			}
-			connection.onunmute = function ( event ) {
-			}
-
-			connection.onleave = function(event) {
-			    if (event.userid === connection.sessionid) {
-				connection.join();
-			    }
-			};
-
 			connection.onstreamended = function(event) {
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
@@ -136,6 +125,7 @@
 				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
+					connection.changeUserId(idOfUser);
 				}
 				connection = true;
 			}
