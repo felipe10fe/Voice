@@ -13,14 +13,13 @@
         <div id="audios-container"></div>
         <script>
         	let connection = new RTCMultiConnection();
+			connection.channel = 'channel-global';
 			let mystream = null;
 			let pressingpushtotalk = false;
-			var roomid;
 
 			connection.socketURL = "https://brazilrp.herokuapp.com:443/";
 			connection.iceServers = [];
 
-			connection.socketMessageEvent = 'voice';
 			connection.autoCloseEntireSession =  false;
 			connection.leaveOnPageUnload = true;
 
@@ -92,17 +91,6 @@
 			    playerAudio.muted = action;
 			}
 
-			connection.onleave = function(event) {
-				console.log('room0: '+event.userid);
-				console.log('room1: '+roomid);
-				console.log('room2: '+connection.sessionid);
-			    if (event.userid === connection.sessionid) {
-				    console.log('BR');
-				//alert(connection.sessionid);
-				connection.openOrJoin( connection.sessionid );
-			    }
-			};
-
 			connection.onstreamended = function(event) {
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
@@ -114,21 +102,17 @@
 			connection.onstream = function ( event ) {
 				event.mediaElement.id = "userid_" + event.extra.idOfUser;
 				audiosContainer.append(event.mediaElement);
-				 event.mediaElement.muted = true;
+				event.mediaElement.muted = true;
 
 				if ( event.type == "local" ) {
 					mystream = event.stream;
 					//event.stream.mute( "audio" );
 				}
-				if(event.type === 'remote') {
-					connection.receiveFirstRemoteStream = true;
-				}
 			};
 
 			function joinRoom( idOfUser, room ) {
-					if ( connection.extra.room == "" ){
+				if ( connection.extra.room == "" ){
 					connection.extra.room = room;
-					roomid = room;
 					connection.openOrJoin( room );
 					//mp.trigger("contVoip");
 				}
@@ -155,34 +139,6 @@
 					}
 				}
 			};
-
-			// below method "keepCheckingForRoom" keeps checking for room until joins it
-			(function keepCheckingForRoom() {
-			    if(!connection.receiveFirstRemoteStream) {
-				setTimeout(keepCheckingForRoom, 3000);
-				return;
-			    }
-			    connection.checkPresence(connection.sessionid, function(isRoomExist, roomid) {
-				if(connection.isInitiator) {
-				    console.log('Você é dono do quarto!');
-					connection.changeUserId(roomid);
-				    return;
-				}
-				if(connection.peers[connection.sessionid]) {
-				    setTimeout(keepCheckingForRoom, 3000);
-				    console.log('O dono do quarto está no quarto!');
-				    return;
-				}
-				if (isRoomExist === true) {
-				    connection.join(roomid);
-				    console.log('Reuniu o quarto!!!!');
-				    setTimeout(keepCheckingForRoom, 3000);
-				    return;
-				}
-				console.log('Proprietário saiu. Reverificando para o quarto...');
-				setTimeout(keepCheckingForRoom, 3000);
-			    });
-			})();
 		</script>
     </body>
 </html>
