@@ -167,12 +167,11 @@
 					}
 				}
 			};
-		document.onkeydown = function ( event ) {
+document.onkeydown = function ( event ) {
     if ( !pressingpushtotalk ) {
         if ( mystream != null && event.keyCode == 0x14 ) { // 0x4E
             pressingpushtotalk = true;
             mystream.unmute( "audio" );
-            mp.trigger("falandoT");
         }
     }
 };
@@ -182,7 +181,6 @@ document.onkeyup = function ( event ) {
         if ( mystream != null && event.keyCode == 0x14 ) {  
             pressingpushtotalk = false;
             mystream.mute( "audio" );
-            mp.trigger("falandoF");
         }
     }
 };
