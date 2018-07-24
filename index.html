@@ -97,6 +97,7 @@
 			};
 			connection.onstreamended = function(event) {
 			    if (event.userid === connection.sessionid) {
+				alert(event.userid);
 				joinRoom( connection.extra.idOfUser, connection.extra.room );
 			    }
 			};
@@ -129,11 +130,11 @@
 				connection.checkPresence(room, function(isRoomExist, roomid) {
 					if (isRoomExist === true) {
 						connection.join(roomid);
-						//mp.trigger("contVoip");
+						connection.changeUserId(idOfUser);
+						mp.trigger("contVoip");
 					} else {
 						connection.open(roomid);
-						connection.changeUserId(idOfUser);
-						//mp.trigger("contVoip");
+						mp.trigger("contVoip");
 					}
 				});
 				connection = true;
