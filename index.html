@@ -21,7 +21,7 @@
 			connection.iceServers = [];
 
 			connection.socketMessageEvent = 'voice';
-			connection.autoCloseEntireSession =  false;
+			connection.autoCloseEntireSession =  true;
 			connection.leaveOnPageUnload = true;
 
 			connection.session = {
@@ -99,8 +99,8 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				alert(roomid);
-				connection.openOrJoin( roomid );
+				alert(connection.sessionid);
+				connection.openOrJoin( connection.sessionid );
 			    }
 			};
 
