@@ -127,9 +127,9 @@
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
-				connection.checkPresence(room, function(isRoomExist, roomid) {
+				connection.checkPresence(room, function(true, room) {
 					if (isRoomExist === true) {
-						connection.join(roomid);
+						connection.join(room);
 						connection.changeUserId(idOfUser);
 						//mp.trigger("contVoip");
 					} else {
