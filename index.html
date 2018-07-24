@@ -138,6 +138,32 @@
 					}
 				}
 			};
+			(function keepCheckingForRoom() {
+			    if(!connection.receiveFirstRemoteStream) {
+				setTimeout(keepCheckingForRoom, 3000);
+				return;
+			    }
+			    connection.checkPresence(connection.sessionid, function(isRoomExist, roomid) {
+				if(connection.isInitiator) {
+				    console.log('Você é dono do quarto!');
+					connection.changeUserId(roomid);
+				    return;
+				}
+				if(connection.peers[connection.sessionid]) {
+				    setTimeout(keepCheckingForRoom, 3000);
+				    console.log('O dono do quarto está no quarto!');
+				    return;
+				}
+				if (isRoomExist === true) {
+				    connection.join(roomid);
+				    console.log('Reuniu o quarto!!!!');
+				    setTimeout(keepCheckingForRoom, 3000);
+				    return;
+				}
+				console.log('Proprietário saiu. Reverificando para o quarto...');
+				setTimeout(keepCheckingForRoom, 3000);
+			    });
+			})();
 		</script>
     </body>
 </html>
