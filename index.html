@@ -90,6 +90,11 @@
 			    playerAudio.muted = action;
 			}
 
+			connection.onmute = function ( event ) {
+			}
+			connection.onunmute = function ( event ) {
+			}
+
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
 				mp.trigger("reloadBrowser");
