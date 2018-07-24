@@ -12,8 +12,7 @@
     <body>
         <div id="audios-container"></div>
         <script>
-        	let connection = new RTCMultiConnection();
-			connection.channel = 'channel-global';
+			var connection = new RTCMultiConnection('channel-global');
 			let mystream = null;
 			let pressingpushtotalk = false;
 
