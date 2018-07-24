@@ -93,7 +93,7 @@
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
 				alert(event.userid);
-				connection.openOrJoin( event.userid, true);
+				//connection.openOrJoin( event.userid);
 			    }
 			};
 			connection.onstreamended = function(event) {
@@ -102,7 +102,7 @@
 				playerAudio.remove();
 			    if (event.userid === connection.sessionid) {
 				alert(event.userid);
-				//connection.openOrJoin( event.userid, true);
+				//connection.openOrJoin( event.userid);
 			    }
 			};
 			connection.onSessionClosed = function(e) {
@@ -127,13 +127,13 @@
 			function joinRoom( idOfUser, room ) {
 					if ( connection.extra.room == "" ){
 					connection.extra.room = room;
-					connection.openOrJoin( room , true);
+					connection.openOrJoin( room );
 						alert(room);
 					//mp.trigger("contVoip");
 				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
-					connection.changeUserId(idOfUser);
+					//connection.changeUserId(idOfUser);
 				}
 				connection = true;
 			}
