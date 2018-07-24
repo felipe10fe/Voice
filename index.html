@@ -102,7 +102,7 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				mp.trigger("reloadBrowser");
+				connection.join();
 			    }
 			};
 
@@ -110,6 +110,9 @@
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
+			    if (event.userid === connection.sessionid) {
+				connection.join();
+			    }
 			};
 
 			var audiosContainer = document.getElementById('audios-container');
