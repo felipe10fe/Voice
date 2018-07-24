@@ -92,15 +92,14 @@
 			    playerAudio.muted = action;
 			}
 
-			connection.onmute = function ( event ) {
-			}
-			connection.onunmute = function ( event ) {
-			}
-
 			connection.onleave = function(event) {
 				console.log(event.userid);
 				console.log('BR: '+connection.sessionid);
 			    if (event.userid === connection.sessionid) {
+				    console.log('BR');
+				connection.getAllParticipants().forEach(function(participantId) {
+				connection.disconnectWith( participantId );
+				});
 				//alert(connection.sessionid);
 				connection.openOrJoin( connection.sessionid );
 			    }
