@@ -129,11 +129,11 @@
 				connection.checkPresence(room, function(isRoomExist, roomid) {
 					if (isRoomExist === true) {
 						connection.join(roomid);
-						mp.trigger("contVoip");
+						//mp.trigger("contVoip");
 					} else {
 						connection.open(roomid);
 						connection.changeUserId(idOfUser);
-						mp.trigger("contVoip");
+						//mp.trigger("contVoip");
 					}
 				});
 				connection = true;
