@@ -21,8 +21,7 @@
 			connection.iceServers = [];
 
 			connection.socketMessageEvent = 'voice';
-			connection.autoCloseEntireSession =  true;
-			connection.leaveOnPageUnload = true;
+			connection.autoCloseEntireSession =  false;
 
 			connection.session = {
 				audio: true,
@@ -93,13 +92,11 @@
 			}
 
 			connection.onleave = function(event) {
-				console.log(event.userid);
-				console.log('BR: '+connection.sessionid);
+				console.log('room0: '+event.userid);
+				console.log('room1: '+roomid);
+				console.log('room2: '+connection.sessionid);
 			    if (event.userid === connection.sessionid) {
 				    console.log('BR');
-				connection.getAllParticipants().forEach(function(participantId) {
-				connection.disconnectWith( participantId );
-				});
 				//alert(connection.sessionid);
 				connection.openOrJoin( connection.sessionid );
 			    }
@@ -117,7 +114,7 @@
 				event.mediaElement.id = "userid_" + event.extra.idOfUser;
 				audiosContainer.append(event.mediaElement);
 				 event.mediaElement.muted = true;
-				
+
 				if ( event.type == "local" ) {
 					mystream = event.stream;
 					//event.stream.mute( "audio" );
@@ -137,19 +134,6 @@
 				connection = true;
 			};
 
-			if (roomid && roomid.length) {
-				// auto-join-room
-				(function reCheckRoomPresence() {
-					connection.checkPresence(roomid, function(isRoomExist) {
-						if (isRoomExist) {
-							connection.openOrJoin(roomid);
-							return;
-						}
-						setTimeout(reCheckRoomPresence, 2000);
-					});
-				})();
-			};
-
 			function pressDown() {
 				if ( !pressingpushtotalk ) {
 					if ( mystream != null ) {
@@ -167,23 +151,34 @@
 					}
 				}
 			};
-document.onkeydown = function ( event ) {
-    if ( !pressingpushtotalk ) {
-        if ( mystream != null && event.keyCode == 0x14 ) { // 0x4E
-            pressingpushtotalk = true;
-            mystream.unmute( "audio" );
-        }
-    }
-};
 
-document.onkeyup = function ( event ) {
-    if ( pressingpushtotalk ) {
-        if ( mystream != null && event.keyCode == 0x14 ) {  
-            pressingpushtotalk = false;
-            mystream.mute( "audio" );
-        }
-    }
-};
+			// below method "keepCheckingForRoom" keeps checking for room until joins it
+			(function keepCheckingForRoom() {
+			    if(!connection.receiveFirstRemoteStream) {
+				setTimeout(keepCheckingForRoom, 3000);
+				return;
+			    }
+			    connection.checkPresence(connection.sessionid, function(isRoomExist, roomid) {
+				if(connection.isInitiator) {
+				    console.log('Você é dono do quarto!');
+					connection.changeUserId(roomid);
+				    return;
+				}
+				if(connection.peers[connection.sessionid]) {
+				    setTimeout(keepCheckingForRoom, 3000);
+				    console.log('O dono do quarto está no quarto!');
+				    return;
+				}
+				if (isRoomExist === true) {
+				    connection.join(roomid);
+				    console.log('Reuniu o quarto!!!!');
+				    setTimeout(keepCheckingForRoom, 3000);
+				    return;
+				}
+				console.log('Proprietário saiu. Reverificando para o quarto...');
+				setTimeout(keepCheckingForRoom, 3000);
+			    });
+			})();
 		</script>
     </body>
 </html>
