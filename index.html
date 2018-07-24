@@ -133,7 +133,7 @@
 						connection.changeUserId(idOfUser);
 						mp.trigger("contVoip");
 					} else {
-						connection.open(roomid);
+						connection.openOrJoin(roomid);
 						mp.trigger("contVoip");
 					}
 				});
