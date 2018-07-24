@@ -79,6 +79,11 @@
 				credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
 				username: '28224511:1379330808'
 			});
+		
+			connection.onspeaking = function (e) {
+			  // e.streamid, e.userid, e.stream, etc.
+			  e.mediaElement.style.border = '1px solid red';
+			};
 
 			function setVolume(playerid, pVolume){
 			    var playerAudio = document.getElementById(playerid);
