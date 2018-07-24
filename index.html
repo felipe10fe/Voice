@@ -71,6 +71,7 @@
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
 				//mp.trigger("reloadBrowser");
+				location.reload();
 			    }
 			};
 
