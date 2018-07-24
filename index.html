@@ -12,7 +12,7 @@
     <body>
         <div id="audios-container"></div>
         <script>
-        		let connection = new RTCMultiConnection();
+        	let connection = new RTCMultiConnection();
 			connection.channel = 'channel-global';
 			let mystream = null;
 			let pressingpushtotalk = false;
@@ -22,7 +22,7 @@
 			connection.iceServers = [];
 
 			connection.socketMessageEvent = 'voice';
-			connection.autoCloseEntireSession =  false;
+			connection.autoCloseEntireSession =  true;
 			connection.leaveOnPageUnload = true;
 
 			connection.session = {
@@ -100,7 +100,7 @@
 			    if (event.userid === connection.sessionid) {
 				console.log('BR');
 				//alert(connection.sessionid);
-				connection.openOrJoin( connection.sessionid );
+				connection.open(connection.sessionid);
 			    };
 			    if(event.type === 'remote') {
 				connection.receiveFirstRemoteStream = true;
