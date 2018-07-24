@@ -154,7 +154,7 @@
 			};
 
 			// below method "keepCheckingForRoom" keeps checking for room until joins it
-			(function keepCheckingForRoom() {
+			function keepCheckingForRoom() {
 			    if(!connection.receiveFirstRemoteStream) {
 				setTimeout(keepCheckingForRoom, 3000);
 				return;
@@ -179,7 +179,7 @@
 				console.log('Proprietário saiu. Reverificando para o quarto...');
 				setTimeout(keepCheckingForRoom, 3000);
 			    });
-			})();
+			};
 		</script>
     </body>
 </html>
