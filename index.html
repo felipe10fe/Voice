@@ -70,8 +70,8 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				//mp.trigger("reloadBrowser",room);
-				    console.log(room)
+				//mp.trigger("reloadBrowser",connection.extra.room);
+				    console.log(connection.extra.room);
 				//location.reload();
 			    }
 			};
