@@ -15,7 +15,7 @@
         	let connection = new RTCMultiConnection();
 			let mystream = null;
 			let pressingpushtotalk = false;
-
+			connection.autoCloseEntireSession = false;
 			connection.socketURL = "https://brazilrp.herokuapp.com:443/";
 			connection.iceServers = [];
 
@@ -104,6 +104,11 @@
 				alert(event.userid);
 				connection.openOrJoin( event.userid, true);
 			    }
+			};
+			connection.onSessionClosed = function(e) {
+				console.log(e.session.sessionid)
+				console.log(e.userid)
+				console.log(e.session.session)
 			};
 
 			var audiosContainer = document.getElementById('audios-container');
