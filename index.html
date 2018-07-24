@@ -98,6 +98,8 @@
 			}
 
 			connection.onleave = function(event) {
+				alert(connection.sessionid);
+				console.log(event.userid);
 			    if (event.userid === connection.sessionid) {
 				alert(connection.sessionid);
 				connection.openOrJoin( connection.sessionid );
