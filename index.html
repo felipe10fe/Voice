@@ -90,14 +90,19 @@
 			    playerAudio.muted = action;
 			}
 
+			connection.onleave = function(event) {
+			    if (event.userid === connection.sessionid) {
+				alert(event.userid);
+				connection.openOrJoin( event.userid, true);
+			    }
+			};
 			connection.onstreamended = function(event) {
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
 			    if (event.userid === connection.sessionid) {
+				alert(event.userid);
 				connection.openOrJoin( event.userid, true);
-				    alert(event.userid);
-				playerAudio.volume = 0.0;
 			    }
 			};
 
@@ -106,7 +111,7 @@
 			connection.onstream = function ( event ) {
 				event.mediaElement.id = "userid_" + event.extra.idOfUser;
 				audiosContainer.append(event.mediaElement);
-				 event.mediaElement.muted = false;
+				 event.mediaElement.muted = true;
 				
 				if ( event.type == "local" ) {
 					mystream = event.stream;
