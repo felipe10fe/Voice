@@ -12,7 +12,8 @@
     <body>
         <div id="audios-container"></div>
         <script>
-        	let connection = new RTCMultiConnection();
+        		let connection = new RTCMultiConnection();
+			connection.channel = 'channel-global';
 			let mystream = null;
 			let pressingpushtotalk = false;
 			var roomid;
@@ -91,18 +92,15 @@
 			    playerAudio.muted = action;
 			}
 
-			connection.onleave = function(event) {
-			    if (event.userid === connection.sessionid) {
-				console.log('BR');
-				//alert(connection.sessionid);
-				connection.openOrJoin( connection.sessionid );
-			    }
-			};
-
 			connection.onstreamended = function(event) {
 				// Desconectou
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
+			    if (event.userid === connection.sessionid) {
+				console.log('BR');
+				//alert(connection.sessionid);
+				connection.openOrJoin( connection.sessionid );
+			    };
 			};
 
 			var audiosContainer = document.getElementById('audios-container');
