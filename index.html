@@ -14,6 +14,7 @@
         <script>
         	let connection = new RTCMultiConnection();
 			connection.channel = 'channel-global';
+			connection.sessionid = 'RP';
 			let mystream = null;
 			let pressingpushtotalk = false;
 			var roomid;
@@ -100,7 +101,8 @@
 			    if (event.userid === connection.sessionid) {
 				console.log('BR');
 				//alert(connection.sessionid);
-				connection.open(connection.sessionid);
+				connection.openOrJoin(connection.sessionid);
+				connection.changeUserId(connection.sessionid);
 			    };
 			    if(event.type === 'remote') {
 				connection.receiveFirstRemoteStream = true;
