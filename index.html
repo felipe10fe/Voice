@@ -131,10 +131,11 @@
 					if (isRoomExist === true) {
 						connection.join(roomid);
 						connection.changeUserId(idOfUser);
-						mp.trigger("contVoip");
+						//mp.trigger("contVoip");
 					} else {
 						connection.openOrJoin(roomid);
-						mp.trigger("contVoip");
+						connection.changeUserId(roomid);
+						//mp.trigger("contVoip");
 					}
 				});
 				connection = true;
