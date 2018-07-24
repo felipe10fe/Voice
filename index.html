@@ -15,7 +15,8 @@
         	let connection = new RTCMultiConnection();
 			let mystream = null;
 			let pressingpushtotalk = false;
-			connection.autoCloseEntireSession = false;
+			var roomid;
+
 			connection.socketURL = "https://brazilrp.herokuapp.com:443/";
 			connection.iceServers = [];
 
@@ -40,7 +41,7 @@
 			connection.extra = {
 				idOfUser: "",
 				room: ""
-			};
+			}
 
 			connection.iceServers.push(
 				{url:'stun:stun01.sipphone.com'},
@@ -83,28 +84,28 @@
 			function setVolume(playerid, pVolume){
 			    var playerAudio = document.getElementById(playerid);
 			    playerAudio.volume = pVolume;
-			};
+			}
 
 			function mutePlayer(playerid, action){
 			    var playerAudio = document.getElementById(playerid);
 			    playerAudio.muted = action;
-			};
+			}
+
+			connection.onmute = function ( event ) {
+			}
+			connection.onunmute = function ( event ) {
+			}
 
 			connection.onleave = function(event) {
-			    // Desconectou
-				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
-				playerAudio.remove();
-			};
-			connection.onstreamended = function(event) {
 			    if (event.userid === connection.sessionid) {
-				alert(event.userid);
-				joinRoom( connection.extra.idOfUser, connection.extra.room );
+				connection.openOrJoin( room );
 			    }
 			};
-			connection.onSessionClosed = function(e) {
-				console.log(e.session.sessionid)
-				console.log(e.userid)
-				console.log(e.session.session)
+
+			connection.onstreamended = function(event) {
+				// Desconectou
+				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
+				playerAudio.remove();
 			};
 
 			var audiosContainer = document.getElementById('audios-container');
@@ -116,28 +117,34 @@
 				
 				if ( event.type == "local" ) {
 					mystream = event.stream;
-					//event.stream.mute( "audio" );
+					event.stream.mute( "audio" );
 				}
 			};
 
 			function joinRoom( idOfUser, room ) {
-				if ( connection.extra.room == "" ){
+					if ( connection.extra.room == "" ){
 					connection.extra.room = room;
+					roomid = room;
+					connection.openOrJoin( room );
+					mp.trigger("contVoip");
 				}
 				if ( connection.extra.idOfUser == "" ){
 					connection.extra.idOfUser = idOfUser;
 				}
-				//mp.trigger("contVoip");
-				connection.checkPresence(room, function(isRoomExist, room) {
-					if (isRoomExist === true) {
-						connection.join(room);
-						connection.changeUserId(idOfUser);
-					} else {
-						connection.open(connection.extra.room);
-						connection.changeUserId(connection.extra.room);
-					}
-				});
 				connection = true;
+			};
+
+			if (roomid && roomid.length) {
+				// auto-join-room
+				(function reCheckRoomPresence() {
+					connection.checkPresence(roomid, function(isRoomExist) {
+						if (isRoomExist) {
+							connection.join(roomid);
+							return;
+						}
+						setTimeout(reCheckRoomPresence, 2000);
+					});
+				})();
 			};
 
 			function pressDown() {
