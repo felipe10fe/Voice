@@ -79,10 +79,6 @@
 				credential: 'JZEOEt2V3Qb0y27GRntt2u2PAYA=',
 				username: '28224511:1379330808'
 			});
-		
-			connection.onspeaking = function (e) {
-			  e.mediaElement.style.border = '10px solid red';
-			};
 
 			function setVolume(playerid, pVolume){
 			    var playerAudio = document.getElementById(playerid);
@@ -99,7 +95,7 @@
 				var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
 			    if (event.userid === connection.sessionid) {
-				connection.openOrJoin( event.userid );
+				connection.openOrJoin( event.userid, true);
 				    alert(event.userid);
 				playerAudio.volume = 0.0;
 			    }
@@ -121,7 +117,7 @@
 			function joinRoom( idOfUser, room ) {
 					if ( connection.extra.room == "" ){
 					connection.extra.room = room;
-					connection.openOrJoin( room );
+					connection.openOrJoin( room , true);
 						alert(room);
 					//mp.trigger("contVoip");
 				}
