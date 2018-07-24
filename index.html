@@ -99,7 +99,8 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				connection.openOrJoin( room );
+				alert(roomid);
+				connection.openOrJoin( roomid );
 			    }
 			};
 
@@ -140,7 +141,7 @@
 				(function reCheckRoomPresence() {
 					connection.checkPresence(roomid, function(isRoomExist) {
 						if (isRoomExist) {
-							connection.join(roomid);
+							connection.openOrJoin(roomid);
 							return;
 						}
 						setTimeout(reCheckRoomPresence, 2000);
