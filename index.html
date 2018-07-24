@@ -117,7 +117,7 @@
 			connection.onstream = function ( event ) {
 				event.mediaElement.id = "userid_" + event.extra.idOfUser;
 				audiosContainer.append(event.mediaElement);
-				 event.mediaElement.muted = true;
+				 event.mediaElement.muted = false;
 				
 				if ( event.type == "local" ) {
 					mystream = event.stream;
