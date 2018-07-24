@@ -98,10 +98,10 @@
 			}
 
 			connection.onleave = function(event) {
-				alert(connection.sessionid);
 				console.log(event.userid);
+				console.log('BR: '+connection.sessionid);
 			    if (event.userid === connection.sessionid) {
-				alert(connection.sessionid);
+				//alert(connection.sessionid);
 				connection.openOrJoin( connection.sessionid );
 			    }
 			};
@@ -117,7 +117,7 @@
 			connection.onstream = function ( event ) {
 				event.mediaElement.id = "userid_" + event.extra.idOfUser;
 				audiosContainer.append(event.mediaElement);
-				 event.mediaElement.muted = false;
+				 event.mediaElement.muted = true;
 				
 				if ( event.type == "local" ) {
 					mystream = event.stream;
