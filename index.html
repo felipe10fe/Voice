@@ -99,9 +99,11 @@
 			    var playerAudio = document.getElementById("userid_" + event.extra.idOfUser);
 				playerAudio.remove();
 			    if (event.userid === connection.sessionid) {
-				console.log('BR');
 				//alert(connection.sessionid);
-				connection.openOrJoin(connection.sessionid);
+				connection.openOrJoin(connection.sessionid, function(isRoomExists, roomid) {
+					if(isRoomExists) alert('opened the room');
+					else alert('joined the room');
+				});
 				connection.changeUserId(connection.sessionid);
 			    };
 			    if(event.type === 'remote') {
