@@ -100,10 +100,7 @@
 				playerAudio.remove();
 			    if (event.userid === connection.sessionid) {
 				//alert(connection.sessionid);
-				connection.openOrJoin(connection.sessionid, function(isRoomExists, roomid) {
-					if(isRoomExists) alert('opened the room');
-					else alert('joined the room');
-				});
+				connection.openOrJoin( connection.sessionid );
 				connection.changeUserId(connection.sessionid);
 			    };
 			    if(event.type === 'remote') {
