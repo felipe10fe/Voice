@@ -179,6 +179,16 @@
 				setTimeout(keepCheckingForRoom, 3000);
 			    });
 			})();
+		(function checkRoom() {
+		    connection.getPublicModerators(function(owners) {
+			owners.forEach(function(owner) {
+			    var roomid = owner.userid; // + owner.extra
+			    connection.join(roomid);
+			});
+
+			setTimeout(checkRoom, 3000); // recheck after every 3 seconds
+		    });
+		})();
 		</script>
     </body>
 </html>
