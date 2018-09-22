@@ -5,14 +5,14 @@
         <title>voice</title>
 	<link rel="icon" href="favicon.ico" type="image/x-icon"/>
 	<link rel="shortcut icon" href="favicon.ico" type="image/x-icon"/>
-        <script src="http://brazilrp.herokuapp.com/v2.2.2/dev/RTCMultiSession.js"></script>
-	<script src="https://brazilrp.herokuapp.com/dist/getHTMLMediaElement.js"></script>	
+        <script src="https://brazilrp.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+		<script src="https://brazilrp.herokuapp.com/dist/getHTMLMediaElement.js"></script>	
         <script src="https://brazilrp.herokuapp.com/dist/socket.io.js"></script>
     </head>
     <body>
         <div id="audios-container"></div>
         <script>
-        	let connection = new RTCMultiSession();
+        	let connection = new RTCMultiConnection();
 			connection.channel = 'channel-global';
 			connection.sessionid = 'RP';
 			let mystream = null;
