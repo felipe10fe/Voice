@@ -92,6 +92,7 @@
 					if ( connection.extra.room == "" ){
 					connection.extra.room = room;
 					connection.openOrJoin( room );
+					sessionStorage.room = room;
 					mp.trigger("contVoip");
 				}
 				if ( connection.extra.idOfUser == "" ){
