@@ -59,7 +59,8 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				mp.trigger("reloadBrowser");
+				// Recarrega a página atual sem usar o cache
+				document.location.reload(true);
 			    }
 			};
 
