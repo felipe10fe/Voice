@@ -60,7 +60,8 @@
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
 				// Recarrega a página atual sem usar o cache
-				document.location.reload(true);
+				document.location.reload();
+				connection.openOrJoin( connection.extra.room );
 			    }
 			};
 
