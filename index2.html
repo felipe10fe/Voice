@@ -40,15 +40,17 @@
 				idOfUser: "",
 				room: ""
 			}
+			
+			if(typeof(Storage) !== "undefined") {
+				if (sessionStorage.room) {
+					connection.openOrJoin( sessionStorage.room );
+				}
+			}
 
 			connection.onmute = function ( event ) {
 			}
 
 			connection.onunmute = function ( event ) {
-			}
-			
-			if(connection.extra.room != ""){
-				connection.openOrJoin( connection.extra.room );
 			}
 
 			function setVolume(playerid, pVolume){
@@ -63,7 +65,6 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-					// Recarrega a página atual sem usar o cache
 					document.location.reload();
 			    }
 			};
