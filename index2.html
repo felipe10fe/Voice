@@ -46,6 +46,10 @@
 
 			connection.onunmute = function ( event ) {
 			}
+			
+			if(connection.extra.room != ""){
+				connection.openOrJoin( connection.extra.room );
+			}
 
 			function setVolume(playerid, pVolume){
 			    var playerAudio = document.getElementById(playerid);
@@ -59,9 +63,8 @@
 
 			connection.onleave = function(event) {
 			    if (event.userid === connection.sessionid) {
-				// Recarrega a página atual sem usar o cache
-				document.location.reload();
-				connection.openOrJoin( connection.extra.room );
+					// Recarrega a página atual sem usar o cache
+					document.location.reload();
 			    }
 			};
 
